@@ -1,8 +1,2 @@
-import json
-
-data = {
-    "topics": ["Technology", "Science", "Art", "Business"],
-    "dates": ["October", "November", "December"],
-    "members": ["Fixie", "Fifty Fifty", "TYU", "Altundal", "Memir"],
-    "teams": []
-}
+for i in range(10,0,-1):
+    print(i)

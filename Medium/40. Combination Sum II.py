@@ -1,7 +1,7 @@
 class Solution:
     count = 0
 
-    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
+    def combinationSum2(self, candidates: list[int], target: int) -> list[list[int]]:
         result = []
         candidates.sort()
         no_candidates = len(candidates)
@@ -15,14 +15,13 @@ class Solution:
 
             # Left Child
             cur.append(candidates[index])
-            solve(index, cur, total + candidates[index])
+            solve(index+1, cur, total + candidates[index])
             # Right Child
+            counter = 0
+            while counter + index < no_candidates and candidates[counter+index] == candidates[index]:
+                counter += 1
             cur.pop()
-            solve(index + 1, cur, total)
+            solve(index + counter, cur, total)
 
         solve(0, [], 0)
         return result
-
-if __name__ == '__main__':
-    solution = Solution()
-    print(*solution.combinationSum([7, 3, 2], 18), sep='\n')
